@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tetris</title>
+	<style type="text/css">
+	body{
+		background: url(1.webp);
+	}
+	</style>
+</head>
+<body onload="read()">					
+	<h1 align="middle">Tetris</h1>
+   	<form action = "main.html" method = "get" id="name_input_f" align="middle">
+    	<div>
+    		<label style = "color:white">
+				Enter your name:
+			</label></br>
+    		<input style="color:blue" placeholder="Enter your name" id="name_input">
+ 		</div>
+ 		<button type="submit" onclick="store()">Submit</button>
+		<script>
+            function store() {
+                if (document.getElementById('name_input').value === null) {
+                    alert("Enter the name!");
+				} else 
+					localStorage.setItem('#tetris.name_input', document.getElementById('name_input').value);
+            }
+			
+			function read() {
+				    if (localStorage.hasOwnProperty("#tetris.name_input"))
+					{
+						let name = localStorage.getItem("#tetris.name_input");
+						let input = document.getElementById("name_input");
+						input.value = name;
+						
+						return name
+					}
+			}
+		</script>
+    </form>
+</body>
+</html>
